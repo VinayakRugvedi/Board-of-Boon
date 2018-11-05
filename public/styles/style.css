@@ -1,0 +1,26 @@
+html {
+  background-color: black;
+}
+
+header {
+  width: 100%;
+  padding: 0px;
+  position: fixed;
+  top: 5px;
+  left: 0px;
+  background-color: orange;
+}
+
+header h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 32%;
+  display: inline-block;
+}
+
+header h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 16%;
+  display: inline-block;
+}
