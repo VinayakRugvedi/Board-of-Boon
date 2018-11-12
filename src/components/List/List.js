@@ -9,7 +9,6 @@ class List extends React.Component {
   render() {
     return (
       <div className="listContainer">
-      <h1> I am a list </h1>
       </div>
     )
   }
