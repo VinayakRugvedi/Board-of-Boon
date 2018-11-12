@@ -8,13 +8,12 @@
 .addNewList {
   display: block;
   width: 15%;
-  height: 50px;
+  height: 5%;
   background-color: black;
   color: white;
   padding: 5px;
   margin: 0 auto;
-  border: 2px dotted white;
-  border-radius: 10px;
+  border: none;
   font-size: 20px;
 }
 
