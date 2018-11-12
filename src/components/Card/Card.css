@@ -18,3 +18,22 @@
   cursor: pointer;
   font-size: 20px;
 }
+
+.highlights {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(0,205,0);
+  position: absolute;
+  bottom: 0px;
+}
+
+.highlights-items {
+  background-color: #dd3420;
+  display: inline-block;
+  margin: 8px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 25px;
+}
