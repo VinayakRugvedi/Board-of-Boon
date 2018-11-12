@@ -3,12 +3,12 @@ html {
 }
 
 header {
-  width: 100%;
+  width: 99.1%;
   padding: 0px;
   position: fixed;
   top: 5px;
-  left: 0px;
-  background-color: #02A4D3;
+  left: 8px;
+  background-color: #dd3420;
 }
 
 .home-icon {
@@ -21,7 +21,7 @@ header {
 }
 
 .home-icon:hover {
-  background-color: #FF4500;
+  background-color: #0099ff;
   border-color: black;
 }
 
@@ -32,7 +32,7 @@ header h1 {
   font-family: 'Fredericka the Great', cursive;
   font-size: 33px;
   color: black;
-  text-shadow: 0px 0px 5px orangered;
+  text-shadow: 0px 0px 3px #0099ff;
   display: inline-block;
 }
 
@@ -42,10 +42,11 @@ header h3 {
   margin-left: 18.5%;
   font-family: 'Charmonman', cursive;
   color: black;
-  text-shadow: 0px 0px 5px orangered;
+  text-shadow: 0px 0px 5px #0099FF;
   display: inline-block;
 }
 
 #root {
-  margin-top: 100px;
+  margin-top: 65px;
+  height: 850px;
 }
