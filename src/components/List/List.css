@@ -1,8 +1,32 @@
 .listContainer {
-  width: 15%;
-  height: 50px;
+  width: 15.5%;
+  height: 100px;
   display: inline-block;
   margin: 20px 10px;
-  border: 2px dotted black;
   background-color: white;
+  position: relative;
+}
+
+.deleteThisList {
+  background-color: #dd3420;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.addNewCard {
+  background-color: #dd3420;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 25px;
 }
