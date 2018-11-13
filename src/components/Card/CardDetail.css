@@ -1,0 +1,30 @@
+.cardModalWindowBG {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  position:fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+.cardModalWindow {
+  display: block;
+  width: 50%;
+  height: 70%;
+  background-color: white;
+  margin: 7.3% auto;
+  position: relative;
+}
+
+.closeIt {
+  background-color: #dd3420;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 25px;
+}
