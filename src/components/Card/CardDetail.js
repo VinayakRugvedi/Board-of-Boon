@@ -20,15 +20,24 @@ class CardDetail extends React.Component {
             <div className="cardNameContainer">
               <p>Name</p>
               <input/>
-              </div>
-              <div className="cardDescriptionContainer">
+            </div>
+            <div className="cardDescriptionContainer">
               <p>Description</p>
               <textarea></textarea>
-              </div>
-              <div className="cardLabelContainer">
-              <p>Label</p>
-              </div>
             </div>
+            <div className="dueDateContainer">
+              <p>Due-Date</p>
+              <input/>
+            </div>
+            <div className="cardLabelContainer">
+              <p>Label</p>
+              <span className="whiteLabel"></span>
+              <span className="greenLabel"></span>
+              <span className="redLabel"></span>
+              <span className="blueLabel"></span>
+              <span className="yellowLabel"></span>
+            </div>
+          </div>
           <div className="saveChanges">
             <button title="Save all the changes made to this card">SAVE</button>
           </div>
