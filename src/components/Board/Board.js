@@ -12,7 +12,7 @@ class Board extends React.Component {
     }
     this.showListName = this.showListName.bind(this)
     this.acceptListName = this.acceptListName.bind(this)
-    this.updateLists = this.updateLists.bind(this)
+    this.updateList = this.updateList.bind(this)
   }
 
   acceptListName(event) {
@@ -32,7 +32,7 @@ class Board extends React.Component {
     })
   }
 
-  updateLists(list, toRemove = true) {
+  updateList(list, toRemove = true) {
     let listsCopy = this.state.lists
     for( let item of listsCopy) {
       if(item.listId === list.listId) {
@@ -49,7 +49,7 @@ class Board extends React.Component {
 
   render() {
     const allLists = this.state.lists.map( (list) => {
-      return <List key={list.listId} list={list} updateList={this.updateLists}/>
+      return <List key={list.listId} list={list} updateList={this.updateList}/>
     })
 
     return (
