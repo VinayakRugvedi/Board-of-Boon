@@ -37,7 +37,9 @@ class Card extends React.Component {
 
   finishEditing(event) {
     if(event.which === 13) {
-      this.toggleDisable()
+      this.setState({
+        isDisabled : !this.state.isDisabled
+      })
     }
   }
 
