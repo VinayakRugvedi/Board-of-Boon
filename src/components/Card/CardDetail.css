@@ -12,7 +12,8 @@
   display: block;
   width: 45%;
   height: 60%;
-  background-color: white;
+  background-color: black;
+  border: 3px solid black;
   margin: 7.3% auto;
   position: relative;
 }
@@ -36,6 +37,109 @@
   left: 6px;
   width: 98%;
   height: 80%;
+}
+
+.cardNameContainer p {
+  position: absolute;
+  left: 5px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.cardNameContainer input {
+  position: absolute;
+  left: 5px;
+  top: 40px;
+  color: white;
+  font-size: 20px;
+  width: 40%;
+  height: 30px;
+  border: 2px solid #ff3333;
+  background-color: black;
+}
+
+.cardDescriptionContainer p {
+  position: absolute;
+  left: 5px;
+  color: white;
+  top: 75px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.cardDescriptionContainer textarea {
+  position: absolute;
+  left: 5px;
+  color: white;
+  top: 115px;
+  width: 60%;
+  height: 30%;
+  font-size: 20px;
+  background-color: black;
+  border: 3px solid #ff3333;
+}
+
+.dueDateContainer p {
+  position: absolute;
+  left: 5px;
+  color: white;
+  top: 250px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.dueDateContainer input {
+  position: absolute;
+  left: 5px;
+  color: black;
+  top: 290px;
+  font-size: 20px;
+  width: 30%;
+  height: 30px;
+  background-color: black;
+  border: 2px solid #ff3333;
+}
+
+.cardLabelContainer p {
+  position: absolute;
+  left: 5px;
+  color: white;
+  top: 325px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.cardLabelContainer span {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 370px;
+}
+
+.whiteLabel {
+  background-color: white;
+  left: 5px;
+}
+
+.greenLabel {
+  background-color: green;
+  left: 95px;
+}
+
+.redLabel {
+  background-color: red;
+  left: 190px;
+}
+
+.blueLabel {
+  background-color: blue;
+  left: 285px;
+}
+
+.yellowLabel {
+  background-color: yellow;
+  left: 380px;
 }
 
 .saveChanges button {
