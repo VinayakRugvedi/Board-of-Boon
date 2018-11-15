@@ -1,36 +1,62 @@
 import React from 'react'
 import List from '../List/List.js'
 import './Board.css'
+import shortid from 'shortid'
 
 class Board extends React.Component {
   constructor() {
     super()
     this.state = {
-      listName : ''
+      listName : '',
+      lists : []
     }
+    this.showListName = this.showListName.bind(this)
+    this.acceptListName = this.acceptListName.bind(this)
+    this.updateLists = this.updateLists.bind(this)
   }
 
   acceptListName(event) {
     if(event.which === 13) {
+      let listsCopy = this.state.lists
+      listsCopy.push({name: this.state.listName, listId: shortid.generate()})
       this.setState({
-        listName : ''
+        listName : '',
+        lists : listsCopy
       })
     }
   }
 
-  showName(event) {
-    console.log(event)
+  showListName(event) {
     this.setState({
       listName : event.target.value
     })
   }
 
+  updateLists(list, toRemove = true) {
+    let listsCopy = this.state.lists
+    for( let item of listsCopy) {
+      if(item.listId === list.listId) {
+        if(toRemove)
+        listsCopy.splice(listsCopy.indexOf(item), 1)
+        else item = list
+        break;
+      }
+    }
+    this.setState({
+      lists : listsCopy
+    })
+  }
+
   render() {
+    const allLists = this.state.lists.map( (list) => {
+      return <List key={list.listId} list={list} updateList={this.updateLists}/>
+    })
+
     return (
       <div className="boardContainer">
-        <input className="addNewList" placeholder=" &#43; Add a New List" value={this.state.listName} onKeyUp={this.acceptListName.bind(this)} onChange={this.showName.bind(this)}/>
+        <input className="addNewList" placeholder=" &#43; Add a New List" value={this.state.listName} onKeyUp={this.acceptListName} onChange={this.showListName}/>
         <div className="listComponents">
-          <List/>
+          {allLists}
         </div>
       </div>
     )
