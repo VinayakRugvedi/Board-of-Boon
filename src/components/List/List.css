@@ -1,15 +1,16 @@
 .listContainer {
   width: 15.5%;
   min-height: 120px;
-  display: inline-block;
+  display: inline-grid;
   margin: 20px 10px;
-  background-color: white;
+  background-color: rgba(80,80,80,0.9);
+  border: 3px solid #0099ff;
   position: relative;
   border-radius: 5px;
 }
 
 .deleteThisList {
-  background-color: #dd3420;
+  background-color: #ff3333;
   position: absolute;
   right: 5px;
   top: 5px;
@@ -45,10 +46,11 @@
 }
 
 .toggleDisableButton:hover {
-  background-color: #dd3420;
+  background-color: #0099ff;
 }
+
 .addNewCard {
-  background-color: #dd3420;
+  background-color: #ff3333;
   position: absolute;
   right: 5px;
   bottom: 5px;
