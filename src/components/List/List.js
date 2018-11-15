@@ -7,7 +7,6 @@ class List extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name : this.props.list.name,
       cards : [],
       isDisabled : false
     }
@@ -16,7 +15,7 @@ class List extends React.Component {
     this.toggleDisable = this.toggleDisable.bind(this)
     this.editing = this.editing.bind(this)
     this.finishEditing = this.finishEditing.bind(this)
-    this.updateCards = this.updateCards.bind(this)
+    this.updateCard = this.updateCard.bind(this)
   }
 
   deleteThisList() {
@@ -30,9 +29,9 @@ class List extends React.Component {
   }
 
   editing(event) {
-    this.setState({
-      name : event.target.value
-    })
+    let listCopy = this.props.list
+    listCopy.name = event.target.value
+    this.props.updateList(listCopy, false)
   }
 
   finishEditing(event) {
@@ -49,7 +48,7 @@ class List extends React.Component {
     })
   }
 
-  updateCards(card, toRemove = true) {
+  updateCard(card, toRemove = true) {
     let cardsCopy = this.state.cards
     for( let item of cardsCopy) {
       if(item.cardId === card.cardId) {
@@ -66,13 +65,13 @@ class List extends React.Component {
 
   render() {
     const allCards = this.state.cards.map( (card) => {
-      return <Card key={card.cardId} card={card} updateCards={this.updateCards}/>
+      return <Card key={card.cardId} card={card} updateCard={this.updateCard}/>
     })
     return (
       <div className="listContainer">
         <div className="deleteThisList" title="Delete this entire List" onClick={this.deleteThisList}>&times;</div>
         <div className="listNameHolder">
-          <input value={this.state.name} disabled={!this.state.isDisabled} onChange={this.editing} onKeyUp={this.finishEditing}/>
+          <input value={this.props.list.name} disabled={!this.state.isDisabled} onChange={this.editing} onKeyUp={this.finishEditing}/>
           <button className="toggleDisableButton" title="EDIT List Name" onClick={this.toggleDisable}>&#x270E;</button>
         </div>
         <div className="cardComponents">
