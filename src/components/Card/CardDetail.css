@@ -10,15 +10,15 @@
 
 .cardModalWindow {
   display: block;
-  width: 50%;
-  height: 70%;
+  width: 45%;
+  height: 60%;
   background-color: white;
   margin: 7.3% auto;
   position: relative;
 }
 
 .closeIt {
-  background-color: #dd3420;
+  background-color: #ff3333;
   position: absolute;
   right: 5px;
   top: 5px;
@@ -27,4 +27,31 @@
   border-radius: 50%;
   cursor: pointer;
   font-size: 25px;
+}
+
+.contentContainer {
+  border: 2px solid black;
+  position: absolute;
+  top: 50px;
+  left: 6px;
+  width: 98%;
+  height: 80%;
+}
+
+.saveChanges button {
+  background-color: #ff3333;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 70px;
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+
+.saveChanges button:hover {
+  color: black;
+  background-color: #0099ff;
 }
