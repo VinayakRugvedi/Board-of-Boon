@@ -53,7 +53,6 @@ class Card extends React.Component {
   }
 
   render() {
-    console.log(this.props.card.name, 'cname in cardjs')
     return (
       <React.Fragment>
       <div className="cardContainer" onClick={this.toggleHidden}>
@@ -63,7 +62,7 @@ class Card extends React.Component {
           <button className="toggleDisableButtonCard" title="EDIT this Card name" onClick={this.toggleDisable}>&#x270E;</button>
         </div>
         <div className="highlights">
-          <div className="labelColor" title="Assigned Label Color" style={ { backgroundColor : this.props.card.label} }>
+          <div className="labelColor" title="Assigned Label Color" style={ { backgroundColor : this.props.card.label } }>
           </div>
           {
             this.props.card.description.length > 0
@@ -77,7 +76,7 @@ class Card extends React.Component {
               </div>
             : ''
           }
-          <div className="checklistItems" title="Checklist Items">10/10</div>
+          <div className="priorityItem" title="Assigned Priority">{ this.props.card.priority }/10</div>
         </div>
       </div>
       <CardDetail isHidden = {this.state.isHidden} toggleHidden = {this.toggleHidden} card={this.props.card} updateCard={this.props.updateCard}/>
