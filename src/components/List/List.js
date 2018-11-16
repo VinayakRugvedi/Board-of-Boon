@@ -42,7 +42,7 @@ class List extends React.Component {
 
   addNewCard() {
     let cardsCopy = this.state.cards
-    cardsCopy.push({name: '', label: 'white', description: '', dueDate: '', cardId: shortid.generate()})
+    cardsCopy.push({name: '', label: 'white', description: '', dueDate: '', priority: 1, cardId: shortid.generate()})
     this.setState({
       cards : cardsCopy
     })
