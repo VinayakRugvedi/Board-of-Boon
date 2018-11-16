@@ -7,13 +7,15 @@ class CardDetail extends React.Component {
     this.state = {
       description : this.props.card.description,
       label : this.props.card.label,
-      dueDate : this.props.card.dueDate
+      dueDate : this.props.card.dueDate,
+      priority : this.props.card.priority
     }
     this.toggleDisplay = this.toggleDisplay.bind(this)
     this.finishEditing = this.finishEditing.bind(this)
     this.editingName = this.editingName.bind(this)
     this.editingDescription = this.editingDescription.bind(this)
     this.editingDueDate = this.editingDueDate.bind(this)
+    this.setPriority = this.setPriority.bind(this)
   }
 
   toggleDisplay() {
@@ -39,6 +41,18 @@ class CardDetail extends React.Component {
     })
   }
 
+  setLabelColor(color, event) {
+    this.setState({
+      label : color
+    })
+  }
+
+  setPriority(event) {
+    this.setState({
+      priority : event.target.textContent
+    })
+  }
+
   finishEditing(event) {
     let cardCopy
       cardCopy = this.props.card
@@ -46,11 +60,18 @@ class CardDetail extends React.Component {
       cardCopy.description = this.state.description
       cardCopy.label = this.state.label
       cardCopy.dueDate = this.state.dueDate
+      cardCopy.priority = this.state.priority
       this.props.updateCard(cardCopy, false)
       this.props.toggleHidden()
   }
 
   render() {
+    const priorityButtons = [1,2,3,4,5,6,7,8,9,10].map( (value, index) => {
+      return <button key={index} onClick={this.setPriority} style={ {backgroundColor :
+        Number(this.state.priority) === value
+        ? "#0099ff"
+        : ''}}> {value} </button>
+    })
     return (
       <div className="cardModalWindowBG" style={{display : this.props.isHidden}}>
         <div className="cardModalWindow">
@@ -70,11 +91,17 @@ class CardDetail extends React.Component {
             </div>
             <div className="cardLabelContainer">
               <p>Label</p>
-              <span className="whiteLabel"></span>
-              <span className="greenLabel"></span>
-              <span className="redLabel"></span>
-              <span className="blueLabel"></span>
-              <span className="yellowLabel"></span>
+              <button className="whiteLabel" onClick={ (e) => this.setLabelColor('white', e)}></button>
+              <button className="greenLabel" onClick={ (e) => this.setLabelColor('green', e)}></button>
+              <button className="redLabel" onClick={ (e) => this.setLabelColor('red', e)}></button>
+              <button className="blueLabel" onClick={ (e) => this.setLabelColor('blue', e)}></button>
+              <button className="yellowLabel" onClick={ (e) => this.setLabelColor('yellow', e)}></button>
+            </div>
+            <div className="priorityContainer">
+              <p>Priority</p>
+              <div className="priorityItemContainer">
+                { priorityButtons }
+              </div>
             </div>
           </div>
           <div className="saveChanges">
