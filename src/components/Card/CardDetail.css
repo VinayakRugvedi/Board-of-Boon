@@ -10,8 +10,8 @@
 
 .cardModalWindow {
   display: block;
-  width: 45%;
-  height: 60%;
+  width: 40%;
+  height: 55%;
   background-color: black;
   border: 3px solid black;
   margin: 7.3% auto;
@@ -31,10 +31,9 @@
 }
 
 .contentContainer {
-  border: 2px solid black;
   position: absolute;
   top: 50px;
-  left: 6px;
+  left: 60px;
   width: 98%;
   height: 80%;
 }
@@ -84,7 +83,7 @@
   position: absolute;
   left: 5px;
   color: white;
-  top: 250px;
+  top: 255px;
   font-size: 15px;
   font-weight: bold;
 }
@@ -93,7 +92,7 @@
   position: absolute;
   left: 5px;
   color: white;
-  top: 290px;
+  top: 295px;
   font-size: 20px;
   width: 30%;
   height: 30px;
@@ -105,16 +104,17 @@
   position: absolute;
   left: 5px;
   color: white;
-  top: 325px;
+  top: 330px;
   font-size: 15px;
   font-weight: bold;
 }
 
-.cardLabelContainer span {
+.cardLabelContainer button {
   width: 70px;
   height: 20px;
   position: absolute;
   top: 370px;
+  border: none;
 }
 
 .whiteLabel {
@@ -140,6 +140,32 @@
 .yellowLabel {
   background-color: yellow;
   left: 380px;
+}
+
+.priorityContainer p {
+  position: absolute;
+  right: 120px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.priorityItemContainer {
+  width: 50px;
+  position: absolute;
+  right: 125px;
+  top: 40px;
+}
+
+.priorityItemContainer button {
+  width: 30px;
+  height: 29px;
+  margin: 3px;
+  background-color: #ff3333;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
 }
 
 .saveChanges button {
