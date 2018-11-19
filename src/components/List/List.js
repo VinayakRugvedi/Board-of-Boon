@@ -18,29 +18,29 @@ class List extends React.Component {
     this.updateCard = this.updateCard.bind(this)
   }
 
-  deleteThisList() {
+  deleteThisList () {
     this.props.updateList(this.props.list)
   }
 
-  toggleDisable() {
+  toggleDisable () {
     this.setState({
       isDisabled : !this.state.isDisabled
     })
   }
 
-  editing(event) {
+  editing (event) {
     let listCopy = this.props.list
     listCopy.name = event.target.value
     this.props.updateList(listCopy, false)
   }
 
-  finishEditing(event) {
+  finishEditing (event) {
     if(event.which === 13) {
       this.toggleDisable()
     }
   }
 
-  addNewCard() {
+  addNewCard () {
     let cardsCopy = this.state.cards
     cardsCopy.push({name: '', label: 'white', description: '', dueDate: '', priority: 1, cardId: shortid.generate()})
     this.setState({
@@ -48,14 +48,14 @@ class List extends React.Component {
     })
   }
 
-  updateCard(card, toRemove = true) {
+  updateCard (card, toRemove = true) {
     let cardsCopy = this.state.cards
     for( let item of cardsCopy) {
       if(item.cardId === card.cardId) {
         if(toRemove)
         cardsCopy.splice(cardsCopy.indexOf(item), 1)
         else item = card
-        break;
+        break
       }
     }
     this.setState({
@@ -63,12 +63,32 @@ class List extends React.Component {
     })
   }
 
+  onDragOver = (e) => {
+    e.preventDefault()
+  }
+
+  onDrop = (e) => {
+    e.preventDefault()
+    let cardsCopy = this.state.cards
+    let newCard = JSON.parse(e.dataTransfer.getData("text"))
+    let flag = true
+    for( let card of cardsCopy) {
+      if( card.cardId === newCard.cardId) flag = false
+    }
+    if(flag) {
+      cardsCopy.push(newCard)
+      this.setState({
+        cards : cardsCopy
+      })
+    }
+  }
+
   render() {
     const allCards = this.state.cards.map( (card) => {
       return <Card key={card.cardId} card={card} updateCard={this.updateCard}/>
     })
     return (
-      <div className="listContainer">
+      <div className="listContainer" onDragOver={ (e) => this.onDragOver(e)} onDrop={ (e) => this.onDrop(e)}>
         <div className="deleteThisList" title="Delete this entire List" onClick={this.deleteThisList}>&times;</div>
         <div className="listNameHolder">
           <input value={this.props.list.name} disabled={!this.state.isDisabled} onChange={this.editing} onKeyUp={this.finishEditing}/>
