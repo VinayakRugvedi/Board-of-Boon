@@ -14,6 +14,12 @@ class Card extends React.Component {
     this.finishEditing = this.finishEditing.bind(this)
     this.deleteThisCard = this.deleteThisCard.bind(this)
     this.toggleHidden = this.toggleHidden.bind(this)
+    this.drag = this.drag.bind(this)
+  }
+
+  drag = (e) => {
+    e.dataTransfer.setData("text", JSON.stringify(this.props.card))
+    console.log(e.dataTransfer.getData("text"), 'before sending')
   }
 
   deleteThisCard(event) {
@@ -54,7 +60,7 @@ class Card extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="theCompleteCard" id={this.props.card.cardId} draggable="true" onDragStart={ (e) => this.drag(e)} onDragEnd={this.deleteThisCard}>
       <div className="cardContainer" onClick={this.toggleHidden}>
         <div className="deleteThisCard" title="Delete this Card" onClick={this.deleteThisCard}>&times;</div>
         <div className="cardNameHolder">
@@ -76,11 +82,13 @@ class Card extends React.Component {
               </div>
             : ''
           }
-          <div className="priorityItem" title="Assigned Priority">{ this.props.card.priority }/10</div>
+          <div className="priorityItem" title="Assigned Priority">
+          { this.props.card.priority }/10
+          </div>
         </div>
       </div>
       <CardDetail isHidden = {this.state.isHidden} toggleHidden = {this.toggleHidden} card={this.props.card} updateCard={this.props.updateCard}/>
-      </React.Fragment>
+      </div>
     )
   }
 }
