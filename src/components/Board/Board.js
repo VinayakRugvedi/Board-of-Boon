@@ -15,7 +15,7 @@ class Board extends React.Component {
     this.updateList = this.updateList.bind(this)
   }
 
-  acceptListName(event) {
+  acceptListName (event) {
     if(event.which === 13) {
       let listsCopy = this.state.lists
       listsCopy.push({name: this.state.listName, listId: shortid.generate()})
@@ -26,20 +26,20 @@ class Board extends React.Component {
     }
   }
 
-  showListName(event) {
+  showListName (event) {
     this.setState({
       listName : event.target.value
     })
   }
 
-  updateList(list, toRemove = true) {
+  updateList (list, toRemove = true) {
     let listsCopy = this.state.lists
     for( let item of listsCopy) {
       if(item.listId === list.listId) {
         if(toRemove)
         listsCopy.splice(listsCopy.indexOf(item), 1)
         else item = list
-        break;
+        break
       }
     }
     this.setState({
@@ -47,7 +47,7 @@ class Board extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const allLists = this.state.lists.map( (list) => {
       return <List key={list.listId} list={list} updateList={this.updateList}/>
     })
